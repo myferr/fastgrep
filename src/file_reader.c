@@ -176,7 +176,6 @@ int traverse_directory(const char* dirpath, int recursive, FileCallback callback
 
     struct dirent* entry;
     char path[4096];
-    size_t dirpath_len = strlen(dirpath);
 
     while ((entry = readdir(dir)) != NULL) {
         if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0) {
