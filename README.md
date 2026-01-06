@@ -36,7 +36,7 @@ fastgrep is optimized for raw performance:
 
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/myferr/fastgrep.git
 cd fastgrep
 
 # Build with optimizations (default)

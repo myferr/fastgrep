@@ -62,7 +62,7 @@ void config_free(Config* config) {
 }
 
 void print_usage(const char* program_name) {
-    fprintf(stderr, "FASTgrep %s - Ultra-fast grep replacement\n", VERSION);
+    fprintf(stderr, "fastgrep %s - Ultra-fast grep replacement\n", VERSION);
     fprintf(stderr, "Usage: %s [OPTIONS] PATTERN [FILE...]\n", program_name);
     fprintf(stderr, "\n");
     fprintf(stderr, "Pattern Matching:\n");
@@ -112,7 +112,7 @@ int parse_arguments(int argc, char** argv, Config* config) {
             config_free(config);
             exit(0);
         } else if (strcmp(argv[i], "--version") == 0) {
-            printf("FASTgrep %s\n", VERSION);
+            printf("fastgrep %s\n", VERSION);
             config_free(config);
             exit(0);
         } else if (strcmp(argv[i], "-r") == 0 || strcmp(argv[i], "--recursive") == 0) {
@@ -223,7 +223,7 @@ int main(int argc, char** argv) {
     logger_enable(logger, config.verbose);
 
     if (config.verbose) {
-        logger_info(logger, "FASTgrep %s starting", VERSION);
+        logger_info(logger, "fastgrep %s starting", VERSION);
         logger_info(logger, "Pattern: %s", config.pattern);
         logger_info(logger, "Recursive: %s", config.recursive ? "yes" : "no");
         logger_info(logger, "Case insensitive: %s", config.ignore_case ? "yes" : "no");
