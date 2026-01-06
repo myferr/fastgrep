@@ -144,7 +144,7 @@ int parse_arguments(int argc, char** argv, Config* config) {
             }
             config->num_threads = (size_t)atoi(argv[i + 1]);
             i++;
-        } else if (argv[i][0] == '-') {
+        } else if (argv[i][0] == '-' && strlen(argv[i]) > 1) {
             fprintf(stderr, "Error: Unknown option '%s'\n", argv[i]);
             return 0;
         } else {
