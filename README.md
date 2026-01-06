@@ -1,6 +1,6 @@
-# FASTgrep
+# fastgrep
 
-A high-performance, dependency-free CLI grep replacement written in C. FASTgrep is designed for maximum speed using memory-mapped I/O, SIMD-accelerated pattern matching, and multi-threaded search.
+A high-performance, dependency-free CLI grep replacement written in C. fastgrep is designed for maximum speed using memory-mapped I/O, SIMD-accelerated pattern matching, and multi-threaded search.
 
 ## Features
 
@@ -16,7 +16,7 @@ A high-performance, dependency-free CLI grep replacement written in C. FASTgrep 
 
 ## Performance
 
-FASTgrep is optimized for raw performance:
+fastgrep is optimized for raw performance:
 
 - **Memory-mapped I/O** - Direct file access without copying data
 - **SIMD instructions** - SSE4.2/AVX2 for fast pattern matching
@@ -147,7 +147,7 @@ fgrep -q "critical" system.log && echo "Found!"
 
 ## Architecture
 
-FASTgrep uses a modular architecture:
+fastgrep uses a modular architecture:
 
 ### Source Files
 
