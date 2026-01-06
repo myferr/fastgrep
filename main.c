@@ -62,35 +62,35 @@ void config_free(Config* config) {
 }
 
 void print_usage(const char* program_name) {
-    fprintf(stderr, "fastgrep %s - Ultra-fast grep replacement\n", VERSION);
-    fprintf(stderr, "Usage: %s [OPTIONS] PATTERN [FILE...]\n", program_name);
-    fprintf(stderr, "\n");
-    fprintf(stderr, "Pattern Matching:\n");
-    fprintf(stderr, "  -e, --regex            Use regex matching (default: ASCII substring)\n");
-    fprintf(stderr, "  -i, --ignore-case      Case-insensitive search\n");
-    fprintf(stderr, "\n");
-    fprintf(stderr, "Search Options:\n");
-    fprintf(stderr, "  -r, --recursive        Recursively search directories\n");
-    fprintf(stderr, "      --threads <N>      Number of threads (default: 1)\n");
-    fprintf(stderr, "\n");
-    fprintf(stderr, "Output Options:\n");
-    fprintf(stderr, "  -n, --line-number      Show line numbers\n");
-    fprintf(stderr, "      --no-line-number    Don't show line numbers\n");
-    fprintf(stderr, "      --color            Highlight matches (default when TTY)\n");
-    fprintf(stderr, "      --no-color          Don't highlight matches\n");
-    fprintf(stderr, "  -q, --quiet            Quiet mode (only exit code matters)\n");
-    fprintf(stderr, "\n");
-    fprintf(stderr, "Other Options:\n");
-    fprintf(stderr, "  -v, --verbose          Verbose output\n");
-    fprintf(stderr, "  -h, --help             Show this help message\n");
-    fprintf(stderr, "      --version          Show version information\n");
-    fprintf(stderr, "\n");
-    fprintf(stderr, "Examples:\n");
-    fprintf(stderr, "  %s pattern file.txt\n", program_name);
-    fprintf(stderr, "  %s -r pattern /path/to/dir\n", program_name);
-    fprintf(stderr, "  %s -i -n pattern file.txt\n", program_name);
-    fprintf(stderr, "  %s -e 'error.*[0-9]+' file.txt\n", program_name);
-    fprintf(stderr, "  %s --threads 4 pattern *.log\n", program_name);
+    printf("fastgrep %s - Ultra-fast grep replacement\n", VERSION);
+    printf("Usage: %s [OPTIONS] PATTERN [FILE...]\n", program_name);
+    printf("\n");
+    printf("Pattern Matching:\n");
+    printf("  -e, --regex            Use regex matching (default: ASCII substring)\n");
+    printf("  -i, --ignore-case      Case-insensitive search\n");
+    printf("\n");
+    printf("Search Options:\n");
+    printf("  -r, --recursive        Recursively search directories\n");
+    printf("      --threads <N>      Number of threads (default: 1)\n");
+    printf("\n");
+    printf("Output Options:\n");
+    printf("  -n, --line-number      Show line numbers\n");
+    printf("      --no-line-number    Don't show line numbers\n");
+    printf("      --color            Highlight matches (default when TTY)\n");
+    printf("      --no-color          Don't highlight matches\n");
+    printf("  -q, --quiet            Quiet mode (only exit code matters)\n");
+    printf("\n");
+    printf("Other Options:\n");
+    printf("  -v, --verbose          Verbose output\n");
+    printf("  -h, --help             Show this help message\n");
+    printf("      --version          Show version information\n");
+    printf("\n");
+    printf("Examples:\n");
+    printf("  %s pattern file.txt\n", program_name);
+    printf("  %s -r pattern /path/to/dir\n", program_name);
+    printf("  %s -i -n pattern file.txt\n", program_name);
+    printf("  %s -e 'error.*[0-9]+' file.txt\n", program_name);
+    printf("  %s --threads 4 pattern *.log\n", program_name);
 }
 
 int parse_arguments(int argc, char** argv, Config* config) {
