@@ -138,7 +138,6 @@ int search_pattern_ascii(const Pattern* pattern, const char* data, size_t size, 
 
     size_t pos = 0;
     size_t line_num = 1;
-    int last_was_newline = 0;
 
     while (pos < size) {
         int found = 0;
@@ -155,9 +154,6 @@ int search_pattern_ascii(const Pattern* pattern, const char* data, size_t size, 
         } else {
             if (data[pos] == '\n') {
                 line_num++;
-                last_was_newline = 1;
-            } else {
-                last_was_newline = 0;
             }
             pos++;
         }
