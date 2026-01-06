@@ -10,7 +10,7 @@
 #include <sys/stat.h>
 #include <unistd.h>
 
-#define VERSION "1.0.0"
+#define VERSION "1.0.1"
 
 typedef struct {
     char** paths;
