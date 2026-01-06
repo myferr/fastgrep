@@ -112,7 +112,7 @@ FileList* filelist_create(void) {
     FileList* list = (FileList*)malloc(sizeof(FileList));
     if (!list) return NULL;
 
-    list->files = (FileData*)malloc(sizeof(FileData) * INITIAL_FILE_CAPACITY);
+    list->files = (FileData**)malloc(sizeof(FileData*) * INITIAL_FILE_CAPACITY);
     if (!list->files) {
         free(list);
         return NULL;
@@ -127,7 +127,7 @@ void filelist_free(FileList* list) {
     if (!list) return;
 
     for (size_t i = 0; i < list->count; i++) {
-        file_close(&list->files[i]);
+        file_close(list->files[i]);
     }
 
     free(list->files);
@@ -139,14 +139,14 @@ int filelist_add(FileList* list, FileData* file) {
 
     if (list->count >= list->capacity) {
         size_t new_capacity = list->capacity * 2;
-        FileData* new_files = (FileData*)realloc(list->files, sizeof(FileData) * new_capacity);
+        FileData** new_files = (FileData**)realloc(list->files, sizeof(FileData*) * new_capacity);
         if (!new_files) return 0;
 
         list->files = new_files;
         list->capacity = new_capacity;
     }
 
-    list->files[list->count++] = *file;
+    list->files[list->count++] = file;
     return 1;
 }
 

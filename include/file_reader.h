@@ -24,7 +24,7 @@ typedef struct {
 } FileData;
 
 typedef struct {
-    FileData* files;
+    FileData** files;
     size_t count;
     size_t capacity;
 } FileList;

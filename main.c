@@ -344,7 +344,7 @@ int main(int argc, char** argv) {
     output_set_show_filename(&output_config, config.show_filename);
     output_set_quiet(&output_config, config.quiet);
 
-    MatchList* results = NULL;
+    MatchList** results = NULL;
     logger_timer_start(logger);
 
     int success = search_multiple_files(pattern, filelist, config.num_threads, &results);
@@ -359,13 +359,19 @@ int main(int argc, char** argv) {
     if (success && results) {
         size_t total_matches = 0;
         for (size_t i = 0; i < filelist->count; i++) {
-            if (results[i].count > 0) {
+            if (results[i] && results[i]->count > 0) {
                 if (!config.quiet) {
-                    output_matches(&output_config, filelist->files[i].filepath, filelist->files[i].data, filelist->files[i].size, &results[i]);
+                    output_matches(&output_config,
+                                   filelist->files[i]->filepath,
+                                   filelist->files[i]->data,
+                                   filelist->files[i]->size,
+                                   results[i]);
                 }
-                total_matches += results[i].count;
+                total_matches += results[i]->count;
             }
-            matchlist_free(&results[i]);
+            if (results[i]) {
+                matchlist_free(results[i]);
+            }
         }
 
         if (total_matches > 0) {

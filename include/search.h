@@ -41,6 +41,6 @@ int search_context_run(SearchContext* context, TaskQueue* queue);
 void* search_worker(void* arg);
 
 int search_single_file(const Pattern* pattern, const FileData* file, MatchList* matches);
-int search_multiple_files(const Pattern* pattern, const FileList* files, size_t num_threads, MatchList** results);
+int search_multiple_files(const Pattern* pattern, const FileList* files, size_t num_threads, MatchList*** results);
 
 #endif

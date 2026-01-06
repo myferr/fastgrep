@@ -147,14 +147,14 @@ int search_single_file(const Pattern* pattern, const FileData* file, MatchList* 
     return search_pattern(pattern, file->data, file->size, matches);
 }
 
-int search_multiple_files(const Pattern* pattern, const FileList* files, size_t num_threads, MatchList** results) {
+int search_multiple_files(const Pattern* pattern, const FileList* files, size_t num_threads, MatchList*** results) {
     if (!pattern || !files || !results) return 0;
 
     TaskQueue* queue = taskqueue_create();
     if (!queue) return 0;
 
     for (size_t i = 0; i < files->count; i++) {
-        if (!taskqueue_add(queue, pattern, &files->files[i], (int)i)) {
+        if (!taskqueue_add(queue, pattern, files->files[i], (int)i)) {
             taskqueue_free(queue);
             return 0;
         }
@@ -168,7 +168,7 @@ int search_multiple_files(const Pattern* pattern, const FileList* files, size_t 
 
     int success = search_context_run(context, queue);
 
-    *results = (MatchList*)malloc(sizeof(MatchList) * queue->count);
+    *results = (MatchList**)malloc(sizeof(MatchList*) * queue->count);
     if (!*results) {
         search_context_free(context);
         taskqueue_free(queue);
@@ -176,8 +176,7 @@ int search_multiple_files(const Pattern* pattern, const FileList* files, size_t 
     }
 
     for (size_t i = 0; i < queue->count; i++) {
-        (*results)[i] = *queue->tasks[i].matches;
-        queue->tasks[i].matches = NULL;
+        (*results)[i] = queue->tasks[i].matches;
     }
 
     search_context_free(context);
