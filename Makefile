@@ -25,7 +25,7 @@ BUILD_DIR = build
 BIN_DIR = bin
 
 # Target binary name
-TARGET = $(BIN_DIR)/fgrep
+TARGET = $(BIN_DIR)/fstgrep
 
 # Source files
 SOURCES = $(wildcard $(SRC_DIR)/*.c)
@@ -74,13 +74,13 @@ clean:
 
 # Install the binary (Linux/macOS)
 install: all
-	install -m 0755 $(TARGET) /usr/local/bin/fgrep
-	@echo "Installed fgrep to /usr/local/bin/"
+	install -m 0755 $(TARGET) /usr/local/bin/fstgrep
+	@echo "Installed fstgrep to /usr/local/bin/"
 
 # Uninstall the binary
 uninstall:
-	rm -f /usr/local/bin/fgrep
-	@echo "Uninstalled fgrep from /usr/local/bin/"
+	rm -f /usr/local/bin/fstgrep
+	@echo "Uninstalled fstgrep from /usr/local/bin/"
 
 # Run tests
 test: all

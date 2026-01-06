@@ -61,7 +61,7 @@ sudo make install
 sudo make uninstall
 ```
 
-The binary will be created at `bin/fgrep`.
+The binary will be created at `bin/fstgrep`.
 
 ### Build Flags
 
@@ -78,25 +78,25 @@ The Makefile uses the following optimization flags by default:
 
 ```bash
 # Search for a pattern in a single file
-fgrep pattern file.txt
+fstgrep pattern file.txt
 
 # Search in multiple files
-fgrep pattern file1.txt file2.txt file3.txt
+fstgrep pattern file1.txt file2.txt file3.txt
 
 # Search recursively in a directory
-fgrep -r pattern /path/to/directory
+fstgrep -r pattern /path/to/directory
 
 # Case-insensitive search
-fgrep -i pattern file.txt
+fstgrep -i pattern file.txt
 
 # Show line numbers
-fgrep -n pattern file.txt
+fstgrep -n pattern file.txt
 
 # Use regex matching
-fgrep -e "error[0-9]+" file.txt
+fstgrep -e "error[0-9]+" file.txt
 
 # Multi-threaded search
-fgrep --threads 4 pattern *.log
+fstgrep --threads 4 pattern *.log
 ```
 
 ### Command-Line Options
@@ -127,22 +127,22 @@ Other Options:
 
 ```bash
 # Find all occurrences of "error" in log files
-fgrep error *.log
+fstgrep error *.log
 
 # Find case-insensitive "hello" recursively
-fgrep -i -r hello /path/to/code
+fstgrep -i -r hello /path/to/code
 
 # Use regex to find error codes
-fgrep -e "error[0-9]+" application.log
+fstgrep -e "error[0-9]+" application.log
 
 # Search with line numbers and colors
-fgrep -n --color "TODO" src/
+fstgrep -n --color "TODO" src/
 
 # Multi-threaded search across many files
-fgrep --threads 8 pattern /path/to/large/directory
+fstgrep --threads 8 pattern /path/to/large/directory
 
 # Quiet mode for scripts (exit code only)
-fgrep -q "critical" system.log && echo "Found!"
+fstgrep -q "critical" system.log && echo "Found!"
 ```
 
 ## Architecture
