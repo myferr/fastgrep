@@ -112,7 +112,7 @@ void* search_worker(void* arg) {
 
     SearchTask* task;
     while ((task = taskqueue_get_next(context->queue)) != NULL) {
-        int found = search_pattern(task->pattern, task->file->data, task->file->size, task->matches);
+        search_pattern(task->pattern, task->file->data, task->file->size, task->matches);
 
         pthread_mutex_lock(&context->result_mutex);
         context->files_searched++;
